@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunker Digital | Sua Base Sólida na Internet</title>
+    <meta name="description" content="A Bunker Digital constrói a presença online do seu negócio. Registro de domínios, e-mail profissional e landing pages de alta conversão.">
+    
+    <!-- Google Fonts: Nunito (Fonte mais suave e arredondada) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons (Light) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* === Variáveis CSS (Light Mode) === */
+        :root {
+            --bg-color: #F8F7F4; /* Off-white quente e confortável */
+            --surface-color: #FFFFFF; 
+            --surface-glass: rgba(248, 247, 244, 0.85);
+            --text-main: #2A2A28;
+            --text-muted: #666660;
+            --primary: #D97743; /* Tom acobreado inspirado na logo */
+            --primary-hover: #BF6536;
+            --border-color: #E2E0D8;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.08);
+            --whatsapp: #25D366;
+            --whatsapp-hover: #1EBE5A;
+            --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --pattern-color: rgba(217, 119, 67, 0.08); /* Bolinhas sutis */
+
+            /* Paleta de Cores dos Ícones (Light) */
+            --icon-blue: #2563EB;
+            --icon-blue-bg: rgba(37, 99, 235, 0.1);
+            --icon-red: #EA4335;
+            --icon-red-bg: rgba(234, 67, 53, 0.1);
+            --icon-purple: #9333EA;
+            --icon-purple-bg: rgba(147, 51, 234, 0.1);
+            --icon-green: #16A34A;
+            --icon-green-bg: rgba(22, 163, 74, 0.1);
+            --icon-amber: #D97706;
+            --icon-amber-bg: rgba(217, 119, 6, 0.1);
+            --icon-teal: #0D9488;
+            --icon-teal-bg: rgba(13, 148, 136, 0.1);
+        }
+
+        /* === Variáveis CSS (Dark Mode) === */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --surface-color: #1A1A1A;
+            --surface-glass: rgba(18, 18, 18, 0.85);
+            --text-main: #F4F3EF;
+            --text-muted: #A1A1A1;
+            --primary: #E58C5A;
+            --primary-hover: #FF9B63;
+            --border-color: #2D2D2D;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 32px rgba(0, 0, 0, 0.5);
+            --pattern-color: rgba(255, 255, 255, 0.03); 
+
+            /* Paleta de Cores dos Ícones (Dark - Tons Pastéis Brilhantes) */
+            --icon-blue: #60A5FA;
+            --icon-blue-bg: rgba(96, 165, 250, 0.15);
+            --icon-red: #F87171;
+            --icon-red-bg: rgba(248, 113, 113, 0.15);
+            --icon-purple: #C084FC;
+            --icon-purple-bg: rgba(192, 132, 252, 0.15);
+            --icon-green: #4ADE80;
+            --icon-green-bg: rgba(74, 222, 128, 0.15);
+            --icon-amber: #FBBF24;
+            --icon-amber-bg: rgba(251, 191, 36, 0.15);
+            --icon-teal: #2DD4BF;
+            --icon-teal-bg: rgba(45, 212, 191, 0.15);
+        }
+
+        /* === Classes Utilitárias de Cor para Ícones === */
+        .c-blue { color: var(--icon-blue); background-color: var(--icon-blue-bg); }
+        .c-red { color: var(--icon-red); background-color: var(--icon-red-bg); }
+        .c-purple { color: var(--icon-purple); background-color: var(--icon-purple-bg); }
+        .c-green { color: var(--icon-green); background-color: var(--icon-green-bg); }
+        .c-amber { color: var(--icon-amber); background-color: var(--icon-amber-bg); }
+        .c-teal { color: var(--icon-teal); background-color: var(--icon-teal-bg); }
+
+        /* === Reset & Base === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            /* Fundo com micropontos sutis */
+            background-image: radial-gradient(var(--pattern-color) 1.5px, transparent 1.5px);
+            background-size: 30px 30px;
+            transition: background-color var(--transition), color var(--transition);
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        html { scroll-behavior: smooth; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; height: auto; display: block; }
+
+        /* === Layout & Utilities === */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-padding { padding: 100px 0; }
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 16px; }
+        .mb-3 { margin-bottom: 24px; }
+        .mb-4 { margin-bottom: 32px; }
+
+        .section-tag {
+            display: inline-block;
+            background-color: rgba(217, 119, 67, 0.1);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--text-main);
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-muted);
+            max-width: 650px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* === Buttons === */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            min-height: 48px;
+        }
+
+        .btn i { font-size: 1.25rem; }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: #FFFFFF;
+        }
+
+        /* Movimentação apenas no Hover */
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(217, 119, 67, 0.25);
+        }
+
+        .btn-secondary {
+            background-color: var(--surface-color);
+            color: var(--text-main);
+            border: 2px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-whatsapp {
+            background-color: var(--whatsapp);
+            color: #FFFFFF;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: var(--whatsapp-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        /* === Header === */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: var(--surface-glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            transition: all var(--transition);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 90px;
+        }
+
+        /* Container escuro para garantir que a logo apareça sempre perfeita */
+        .logo-container {
+            background-color: #0A0A0A; 
+            padding: 8px 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--transition), box-shadow var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo-container img {
+            height: 38px;
+            width: auto;
+            border-radius: 4px;
+        }
+        
+        .logo-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color var(--transition);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Theme Toggle atualizado com Legenda */
+        .theme-toggle {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            height: 44px;
+            padding: 0 16px;
+            border-radius: 100px; /* Formato de pílula para caber o texto */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px; /* Espaçamento entre ícone e texto */
+            cursor: pointer;
+            transition: all var(--transition);
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .theme-toggle i {
+            font-size: 1.25rem;
+        }
+
+        .theme-toggle:hover {
+            background: var(--bg-color);
+            transform: translateY(-2px);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* === Hero Section === */
+        .hero {
+            padding: 200px 0 100px;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(217, 119, 67, 0.08) 0%, transparent 60%);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* === Services Section === */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+            margin-top: 64px;
+        }
+
+        .service-card {
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: all var(--transition);
+            text-align: left;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* Movimentação apenas no Hover */
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary);
+        }
+
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition);
+        }
+        
+        .service-card:hover .service-img {
+            transform: scale(1.03);
+        }
+
+        .service-icon-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: transform var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotate(-10deg) scale(1.1);
+        }
+
+        .service-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .service-desc {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* === Didactic Section (Analogies) === */
+        .didactic {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .analogy-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+
+        .analogy-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 24px;
+            padding: 32px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition);
+        }
+
+        /* Movimentação apenas no hover */
+        .analogy-item:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-sm);
+            border-color: var(--primary);
+            background: var(--surface-color);
+        }
+
+        .analogy-icon {
+            font-size: 2.5rem;
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: transform var(--transition);
+            flex-shrink: 0;
+        }
+        
+        .analogy-item:hover .analogy-icon {
+            transform: scale(1.1);
+        }
+
+        .analogy-text h4 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .analogy-text p {
+            color: var(--text-muted);
+        }
+
+        /* === Benefits Section === */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .benefit-card {
+            padding: 32px 24px;
+            border-top: 4px solid transparent;
+            background: var(--surface-color);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition);
+            border-left: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-top-color: var(--primary);
+        }
+
+        .benefit-icon {
+            font-size: 2rem;
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            transition: transform var(--transition);
+        }
+        
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.1);
+        }
+
+        .benefit-card h4 {
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            font-weight: 800;
+        }
+
+        .benefit-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* === Contact Section === */
+        .cta-section {
+            background: linear-gradient(145deg, var(--surface-color) 0%, var(--bg-color) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 80px 40px;
+            text-align: center;
+            margin: 100px 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--transition);
+        }
+        
+        .cta-section:hover {
+            transform: scale(1.01);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(217, 119, 67, 0.3);
+        }
+
+        .cta-title {
+            font-size: 2.25rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        /* === Footer === */
+        footer {
+            background: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+            padding: 60px 0 24px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-top: 16px;
+            font-weight: 500;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            transition: all var(--transition);
+            font-size: 1.25rem;
+        }
+
+        .footer-socials a:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+            transform: translateY(-4px) rotate(8deg);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-ctas, .cta-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .analogy-item {
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+                align-items: center;
+            }
+            .cta-section {
+                padding: 40px 20px;
+                margin: 60px 16px;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <!-- Caixa escura fixa para garantir a leitura da logo -->
+            <a href="#" class="logo-container" aria-label="Página Inicial">
+                <img src="logo-bunker.png" alt="Bunker Digital Logo" id="brand-logo">
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#servicos">O que fazemos</a>
+                <a href="#como-funciona">Como funciona</a>
+                <a href="#beneficios">Benefícios</a>
+            </nav>
+
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <!-- Botão de Tema c/ Legenda -->
+                <button class="theme-toggle" id="theme-btn" aria-label="Alternar Tema">
+                    <i class="ph-light ph-moon" id="theme-icon"></i>
+                    <span id="theme-label-text">Escuro</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="mb-3">
+                <span class="section-tag">Presença Profissional</span>
+            </div>
+            <h1 class="hero-title">A base sólida para o<br>seu negócio na internet.</h1>
+            <p class="hero-subtitle">Descomplicamos o mundo digital. Registramos seu endereço, configuramos seu e-mail profissional e criamos a vitrine perfeita para atrair clientes.</p>
+            
+            <div class="hero-ctas">
+                <a href="https://wa.me/556196850099?text=Olá, gostaria de saber mais sobre os serviços da Bunker Digital." target="_blank" class="btn btn-whatsapp">
+                    <i class="ph-light ph-whatsapp-logo"></i> Falar no WhatsApp
+                </a>
+                <a href="#servicos" class="btn btn-secondary">
+                    <i class="ph-light ph-arrow-down"></i> Ver Serviços
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding" id="servicos">
+        <div class="container text-center">
+            <span class="section-tag mb-2">Nossos Serviços</span>
+            <h2 class="section-title mb-4">Estrutura digital completa,<br>sem dor de cabeça.</h2>
+            
+            <div class="services-grid">
+                <!-- Serviço 1: Domínio (Ícone Azul) -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=600&q=80" alt="Pessoa digitando em um notebook" class="service-img">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon c-blue"><i class="ph-light ph-globe"></i></div>
+                        <h3 class="service-title">Registro de Domínio</h3>
+                    </div>
+                    <p class="service-desc">Garantimos o nome exclusivo da sua empresa na internet (ex: suaempresa.com.br). É o primeiro passo para existir no mundo digital com autoridade.</p>
+                </div>
+
+                <!-- Serviço 2: E-mail (Ícone Vermelho) -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1596524430615-b46475ddff6e?auto=format&fit=crop&w=600&q=80" alt="Aplicativo de e-mail no celular" class="service-img">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon c-red"><i class="ph-light ph-envelope-simple"></i></div>
+                        <h3 class="service-title">E-mail Profissional</h3>
+                    </div>
+                    <p class="service-desc">E-mails genéricos com letras e números (ex: <strong>empresa123@gmail.com</strong>) causam confusão, parecem amadores e dificultam a memorização. Transmita confiança e organização usando o nome da sua marca (contato@suaempresa.com.br).</p>
+                </div>
+
+                <!-- Serviço 3: Landing Pages (Ícone Roxo) -->
+                <div class="service-card">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" alt="Design de interface em um monitor" class="service-img">
+                    <div class="service-icon-wrap">
+                        <div class="service-icon c-purple"><i class="ph-light ph-layout"></i></div>
+                        <h3 class="service-title">Landing Pages</h3>
+                    </div>
+                    <p class="service-desc">Criamos páginas modernas, rápidas e focadas em um único objetivo: apresentar seu serviço com clareza visual e transformar visitantes em clientes reais.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Didactic Section -->
+    <section class="section-padding didactic" id="como-funciona">
+        <div class="container text-center">
+            <span class="section-tag mb-2">Entenda Simples</span>
+            <h2 class="section-title mb-4">Traduzindo o "Tecniquês"</h2>
+            <p class="section-subtitle">Na Bunker Digital, usamos linguagem que você entende. Veja como é fácil compreender a estrutura da internet.</p>
+
+            <div class="analogy-list text-left">
+                <!-- Analogy 1: Map Pin (Ícone Verde) -->
+                <div class="analogy-item">
+                    <div class="analogy-icon c-green"><i class="ph-light ph-map-pin-line"></i></div>
+                    <div class="analogy-text">
+                        <h4>O Domínio é o seu Endereço Físico</h4>
+                        <p>Assim como você aluga uma sala comercial para os clientes te acharem na rua, o domínio é o endereço da sua loja na internet. Sem ele, ninguém te encontra.</p>
+                    </div>
+                </div>
+
+                <!-- Analogy 2: ID Card (Ícone Âmbar) -->
+                <div class="analogy-item">
+                    <div class="analogy-icon c-amber"><i class="ph-light ph-identification-card"></i></div>
+                    <div class="analogy-text">
+                        <h4>O E-mail Profissional é o seu Crachá</h4>
+                        <p>Entregar um cartão de visitas com "contato@suaempresa.com.br" mostra que você é uma empresa séria, diferente de usar um endereço confuso, genérico ou misturado com números de contas gratuitas.</p>
+                    </div>
+                </div>
+
+                <!-- Analogy 3: Storefront (Ícone Teal) -->
+                <div class="analogy-item">
+                    <div class="analogy-icon c-teal"><i class="ph-light ph-storefront"></i></div>
+                    <div class="analogy-text">
+                        <h4>A Landing Page é a sua Vitrine</h4>
+                        <p>É a fachada iluminada da sua loja. Uma página limpa e direta que mostra exatamente o que você vende e convence o cliente a entrar (clicar no WhatsApp).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section-padding" id="beneficios">
+        <div class="container text-center">
+            <span class="section-tag mb-2">Por que a Bunker?</span>
+            <h2 class="section-title mb-4">Proteção e Crescimento</h2>
+            
+            <div class="benefits-grid text-left">
+                <div class="benefit-card">
+                    <div class="benefit-icon c-blue"><i class="ph-light ph-shield-check"></i></div>
+                    <h4>Mais Credibilidade</h4>
+                    <p>Marcas com estrutura própria vendem mais facilmente pois transmitem confiança imediata.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon c-red"><i class="ph-light ph-target"></i></div>
+                    <h4>Foco em Conversão</h4>
+                    <p>Nossas páginas não são apenas bonitas, são desenhadas com psicologia de vendas para gerar contatos.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon c-purple"><i class="ph-light ph-devices"></i></div>
+                    <h4>Design Sofisticado</h4>
+                    <p>Apresentação visual impecável, minimalista e rápida, funcionando perfeitamente em qualquer celular.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon c-amber"><i class="ph-light ph-coffee"></i></div>
+                    <h4>Sem Complicação</h4>
+                    <p>Nós cuidamos da parte técnica chata. Você foca apenas em atender os clientes que vão chegar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact CTA Section -->
+    <div class="container">
+        <section class="cta-section">
+            <h2 class="cta-title">Pronto para blindar a sua marca na internet?</h2>
+            <p class="section-subtitle" style="color: var(--text-main); opacity: 0.8;">
+                Fale com nossa equipe agora mesmo e descubra como podemos estruturar a presença digital do seu negócio de forma acessível e profissional.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/556196850099?text=Olá, gostaria de saber mais sobre os serviços da Bunker Digital." target="_blank" class="btn btn-whatsapp">
+                    <i class="ph-light ph-whatsapp-logo"></i> Iniciar Atendimento
+                </a>
+                <a href="https://www.instagram.com/_bunkerdigital_/" target="_blank" class="btn btn-secondary">
+                    <i class="ph-light ph-instagram-logo"></i> Nosso Instagram
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo-container" style="display: inline-flex; padding: 6px 10px; margin-bottom: 12px;">
+                        <img src="logo-bunker.png" alt="Bunker Digital Logo" style="height: 28px;">
+                    </div>
+                    <p>Sua base sólida no mundo digital.</p>
+                </div>
+                
+                <div class="footer-socials">
+                    <a href="https://wa.me/556196850099" target="_blank" aria-label="WhatsApp">
+                        <i class="ph-light ph-whatsapp-logo"></i>
+                    </a>
+                    <a href="https://www.instagram.com/_bunkerdigital_/" target="_blank" aria-label="Instagram">
+                        <i class="ph-light ph-instagram-logo"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Bunker Digital. Todos os direitos reservados.</p>
+                <p style="margin-top: 4px;">WhatsApp: (61) 9685-0099 | @ _bunkerdigital_</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Vanilla -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Atualizar o ano atual no rodapé
+            document.getElementById('year').textContent = new Date().getFullYear();
+
+            // Lógica do Tema (Claro / Escuro)
+            const themeBtn = document.getElementById('theme-btn');
+            const themeIcon = document.getElementById('theme-icon');
+            const themeLabel = document.getElementById('theme-label-text');
+            const htmlTag = document.documentElement;
+
+            const savedTheme = localStorage.getItem('bunker-theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            const applyTheme = (theme) => {
+                if (theme === 'dark') {
+                    htmlTag.setAttribute('data-theme', 'dark');
+                    themeIcon.classList.remove('ph-moon');
+                    themeIcon.classList.add('ph-sun');
+                    // Quando o tema for escuro, a próxima opção será o modo Claro
+                    themeLabel.textContent = 'Claro'; 
+                } else {
+                    htmlTag.removeAttribute('data-theme');
+                    themeIcon.classList.remove('ph-sun');
+                    themeIcon.classList.add('ph-moon');
+                    // Quando o tema for claro, a próxima opção será o modo Escuro
+                    themeLabel.textContent = 'Escuro'; 
+                }
+            };
+
+            if (savedTheme) {
+                applyTheme(savedTheme);
+            } else if (systemPrefersDark) {
+                applyTheme('dark');
+            } else {
+                applyTheme('light');
+            }
+
+            themeBtn.addEventListener('click', () => {
+                const currentTheme = htmlTag.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                applyTheme(newTheme);
+                localStorage.setItem('bunker-theme', newTheme);
+            });
+
+            // Sombra no cabeçalho ao rolar a página
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.06)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
